@@ -1,0 +1,102 @@
+<div class="box box-primary">
+  <div class="box-body">
+
+    <div style="max-width: 800px; padding: 20px; margin: auto;">
+
+      <div class="row">
+        <div class="col-sm-12">
+          <di-form-group label="Categoria da Violência" withoutStyle="false" errorMessage="Campo obrigatório">
+              <select class="form-control" [(ngModel)]="violenciaCategoria" name="violenciaCategoria">
+                  <option value="">Selecione uma opção</option>
+                  <option value="FISICA">Física</option>
+                  <option value="PSICOLOGICA">Psicológica</option>
+                  <option value="PATRIMONIAL">Patrimonial</option>
+                  <option value="SEXUAL">Sexual</option>
+                  <option value="MORAL">Moral</option>
+              </select>
+          </di-form-group>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-6">
+          <di-form-group label="Cidade" withoutStyle="false" errorMessage="Campo obrigatório">
+              <select class="form-control" [(ngModel)]="cidade_id" name="ocorrenciaCidade" (change)="bairro_id = undefined">
+                  <option value="">Selecione uma opção</option>
+                  <option *ngFor="let item of cidades" [ngValue]="item?.id">{{item.nome + " - " + item.estado}} </option>
+              </select>
+          </di-form-group>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-6">
+          <di-form-group label="Idade - Início" withoutStyle="false" errorMessage="Campo obrigatório">
+            <input type="number" class="form-control" placeholder="" [(ngModel)]="idadeInicio" name="idadeInicio" />
+          </di-form-group>
+        </div>
+        <div class="col-sm-6">
+          <di-form-group label="Idade - Fim" withoutStyle="false" errorMessage="Campo obrigatório">
+            <input type="number" class="form-control" placeholder="" [(ngModel)]="idadeFim" name="idadeFim" />
+          </di-form-group>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-3">
+          <di-form-group label="Cadastro - Início" withoutStyle="false" errorMessage="Campo obrigatório">
+              <input [(ngModel)]="dataCadastroInicio" name="dataCadastroInicio" appDateMask class="form-control" />
+          </di-form-group>
+        </div>
+        <div class="col-sm-3">
+          <di-form-group label="Cadastro - Fim" withoutStyle="false" errorMessage="Campo obrigatório">
+              <input [(ngModel)]="dataCadastroFim" name="dataCadastroFim" appDateMask class="form-control" />
+          </di-form-group>
+        </div>
+        <div class="col-sm-3">
+          <di-form-group label="Ocorrência - Início" withoutStyle="false" errorMessage="Campo obrigatório">
+              <input [(ngModel)]="dataOcorrenciaInicio" name="dataInicio" appDateMask class="form-control" />
+          </di-form-group>
+        </div>
+        <div class="col-sm-3">
+          <di-form-group label="Ocorrência - Fim" withoutStyle="false" errorMessage="Campo obrigatório">
+              <input [(ngModel)]="dataOcorrenciaFim" name="dataFim" appDateMask class="form-control" />
+          </di-form-group>
+        </div>
+      </div>
+
+       <div class="row">
+        <div class="col-sm-6">
+          <di-form-group label="Renda Mínima" withoutStyle="false" errorMessage="Campo obrigatório">
+              <input type="text" class="form-control" placeholder="Renda Individual" [(ngModel)]="rendaInicio" name="rendaInicio" currencyMask />
+          </di-form-group>
+        </div>
+        <div class="col-sm-6">
+          <di-form-group label="Renda Máxima" withoutStyle="false" errorMessage="Campo obrigatório">
+              <input type="text" class="form-control" placeholder="Renda Individual" [(ngModel)]="rendaFim" name="rendaFim" currencyMask />
+          </di-form-group>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label>Local de Ocorrência</label>
+            <div class="controls">
+              <div class="row" style="width: 100%;">
+                <p-checkbox class="col-sm-3" *ngFor="let item of locaisOcorrencia" name="localOcorrencia{{item?.id}}" [label]="item?.nome" [(ngModel)]="item.selecionado" binary="true"></p-checkbox>
+              </div>
+            </div> 
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary pull-right" (click)="print(false)">
+          <i class="fa fa-print"></i> 
+          Gerar relatório
+      </button>
+
+    </div>
+
+  </div>
+</div>

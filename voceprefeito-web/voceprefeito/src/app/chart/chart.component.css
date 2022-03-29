@@ -1,0 +1,12 @@
+.divChartPolitica{
+    display: block;
+    width: 1000px;
+    height: 500px;
+}
+
+.divChartRegiao{
+    display: block;
+    width: 800px;
+    height: 400px;
+    margin-bottom: 50px;
+}

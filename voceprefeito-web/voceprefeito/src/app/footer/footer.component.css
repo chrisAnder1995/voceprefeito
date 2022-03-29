@@ -1,0 +1,5 @@
+.main-footer {
+    transition: transform .3s ease-in-out,margin .3s ease-in-out; 
+     margin-left: 0px  !important; 
+     z-index: 820; 
+}

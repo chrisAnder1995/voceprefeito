@@ -1,0 +1,7 @@
+.ng-untouched.ng-pristine.ng-valid{
+    margin: 8px;
+}
+
+.ng-valid.ng-dirty.ng-touched{
+    margin: 8px;
+}

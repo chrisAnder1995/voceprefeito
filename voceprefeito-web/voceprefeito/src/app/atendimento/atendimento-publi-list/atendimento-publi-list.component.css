@@ -1,0 +1,12 @@
+.ui-splitbutton.ui-buttonset .ui-button {
+    cursor: pointer !important;
+  }
+  
+  .ui-splitbutton .ui-button.ui-splitbutton-menubutton {
+    cursor: pointer;
+  }
+
+  .dashboard{
+    margin-top: 30px;
+  }
+  

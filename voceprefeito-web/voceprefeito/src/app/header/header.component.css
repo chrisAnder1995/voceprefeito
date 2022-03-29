@@ -1,0 +1,13 @@
+.session-time{
+    font-size: 12pt;
+}
+
+.session-time>a>.label{
+    font-size: 9pt;
+    right: 3px;
+    top: 30px;
+}
+
+.session-time>a{
+    padding-top: 10px;
+}

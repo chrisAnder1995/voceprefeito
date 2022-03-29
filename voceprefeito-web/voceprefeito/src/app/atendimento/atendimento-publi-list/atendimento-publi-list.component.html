@@ -1,0 +1,190 @@
+<div class="box box-primary">
+  <div class="overlay" *ngIf="showLoading">
+      <label class="fa">
+          <i class="fa fa-refresh fa-spin"></i>
+          <label style="margin-left: 10px; font-family: 'caviar-dreams','Helvetica Neue',Helvetica,Arial,sans-serif;">
+          Aguarde...
+          </label>
+      </label>
+  </div>
+  <div class="box-header with-border">
+    <div class="col-md-4" >
+      <div class="div-side-by-side">
+        <di-form-group label="Filtrar por Região" withoutStyle="false" errorMessage="Campo obrigatório">
+          <select class="form-control" [(ngModel)]="regiao" [disabled]="blockBtn" name="regiao" [compareWith]="compareFn"  >
+            <option value="">Selecione uma opção</option>
+            <option *ngFor="let regiao of regioes" [ngValue]="regiao">{{regiao.nome}} </option>
+          </select>
+        </di-form-group>
+      </div>
+      <div class="button-side-by-side">
+          <div class="col-md-1" *ngIf="!blockBtn">
+            <button class="btn btn-primary" (click)="getListByRegiao()" >
+              <i class="fa fa-search-plus" aria-hidden="true"></i>
+              Filtrar
+          </button>
+        </div>
+        <div class="col-md-1"  *ngIf="blockBtn">
+          <button class="btn btn-primary" (click)="clear()">
+            <i class="fa fa-minus-circle" aria-hidden="true"></i>
+            Limpar
+        </button>
+        </div>
+      </div>
+    </div>
+  </div> 
+
+  
+   <h4 style="margin-left: 30px;margin-top: 20px;">Votos Registrados: {{numAtendimento}} pessoas</h4>
+    <div class="dashboard" *ngIf="!testeView">
+      <div class="row">
+        <div class="col-md-6">
+            <h4 style="text-align: center;">Politicas Públicas</h4>
+            <div class="divChartPolitica">
+                <canvas id="politicas"></canvas>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h4 style="text-align: center;">Regiões</h4>
+            <div class="divChartRegiao">
+                <canvas id="regioes"></canvas>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="dashboard" *ngIf="testeView">
+      <div class="row">
+        <div class="col-md-6">
+            <h4 style="text-align: center;">Politicas Públicas</h4>
+            <div class="divChartPolitica">
+                <canvas id="politicasNovo"></canvas>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h4 style="text-align: center;">Regiões</h4>
+            <div class="divChartRegiao">
+                <canvas id="regioesNovo"></canvas>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <h4 style="margin-left: 30px;margin-top: 50px;padding: 20px 0px;">Avaliação Geral da Prefeitura: {{avaliacao | number : '1.2-2'}} / 5.00</h4>
+
+    <div class="dashboard" >
+      <div class="row">
+        <div class="col-md-6" style="padding: 0px 40px;">
+            <h3 style="text-align: center;">Assistência Social</h3>
+                <p><span>PROGRAMAS SOCIAIS: {{svv1}}</span></p>
+                <p><span>REFORMA DE NOVOS EQUIPAMENTOS (CRAS, CRC, LAVANDERIAS,PADARIAS E COZINHAS COMUNITÁRIAS): {{svv2}}</span></p>
+                <p><span>CONSTRUÇÃO DE NOVOS EQUIPAMENTOS (CRAS, CRC, LAVANDERIAS,PADARIAS E COZINHAS COMUNITÁRIAS): {{svv3}}</span></p>
+                <p><span>CURSOS PROFISSIONALIZANTES: {{svv4}}</span></p>
+                <p><span>PROGRAMA DE SEGURANÇA ALIMENTAR: {{svv5}}</span></p>
+                <p><span>CENTRO DE ACOLHIMENTO (CRIANÇA, ADOLESCENTE E FAMÍLIA) (REFORMA): {{svv6}}</span></p>
+                <p><span>CENTRO DE ACOLHIMENTO (CRIANÇA, ADOLESCENTE E FAMÍLIA) (CONSTRUÇÃO): {{svv7}}</span></p>
+                <p><span>CENTRO DE REFERÊNCIA DA PESSOA IDOSA: {{svv8}}</span></p>
+                <p><span>PROGRAMA DE BOLSAS ESTUDANTIS: {{svv9}}</span></p>
+                <p><span>AMPLIAÇÃO DO PROGRAMA EMPREGO E RENDA: {{svv10}}</span></p>
+        </div>
+        <div class="col-md-6" style="padding: 0px 40px;">
+          <h3 style="text-align: center;">Esporte</h3>
+              <p><span>EQUIPAMENTOS DE ATIVIDADE FÍSICA EM PRAÇAS (EQUIPAMENTOS DE ATI): {{svv11}}</span></p>
+              <p><span>AÇÕES DE APOIO A INICIATIVAS COMUNITÁRIAS E DE ASSOSSIAÇÕES: {{svv12}}</span></p>
+              <p><span>CAMPO DE FUTEBOL  (REFORMA): {{svv13}}</span></p>
+              <p><span>CAMPO DE FUTEBOL  (CONSTRUÇÃO): {{svv14}}</span></p>
+              <p><span>QUADRA  POLIESPORTIVA  (REFORMA): {{svv15}}</span></p>
+              <p><span>QUADRA  POLIESPORTIVA (CONSTRUÇÃO): {{svv16}}</span></p>
+              <p><span>PROJETO DE ESPORTE NOS BAIRROS E COMUNIDADES: {{svv17}}</span></p>
+              <p><span>CENTRO DE REFERÊNCIA DE JUVENTUDE (CRJ) (REFORMA): {{svv18}}</span></p>
+              <p><span>CENTRO DE REFERÊNCIA DE JUVENTUDE (CRJ) (CONSTRUÇÃO): {{svv19}}</span></p>
+              <p><span>PROJETO DE INCENTIVO E APOIO A ATLETAS PROFISSIONAIS (BOLSA ATLETA): {{svv20}}</span></p>
+      </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6" style="padding: 0px 40px;">
+            <h3 style="text-align: center;">Cultura</h3>
+                <p><span>AMPLIAÇÃO DO PROGRAMA DE CULTURA E ARTE NOS BAIRROS E COMUNIDADES: {{svv21}}</span></p>
+                <p><span>CENTRO CULTURAL (REFORMA): {{svv22}}</span></p>
+                <p><span>CENTRO CULTURAL (CONSTRUÇÃO): {{svv23}}</span></p>
+                <p><span>APOIO A INICIATIVAS CULTURAIS CIVIS, COMUNITÁRIAS E DE ASSOCIAÇÕES: {{svv24}}</span></p>
+                <p><span>PROJETO DE RESGATE CULTURAL NOS BAIRROS E COMUNIDADES: {{svv25}}</span></p>
+                <p><span>APOIO A EVENTOS CULTURAIS EM BAIRROS E COMUNIDADES: {{svv26}}</span></p>
+                <p><span>PROJETO DE INCENTIVAÇÃO E APOIO A MESTRES E MESTRAS CULTURAIS PROFISSIONAIS (BOLSA CULTURA): {{svv27}}</span></p>
+        </div>
+        <div class="col-md-6" style="padding: 0px 40px;">
+          <h3 style="text-align: center;">Esporte</h3>
+              <p><span>PROJETO DE INTERCÂMBIO NAS ESCOLAS: {{svv28}}</span></p>
+              <p><span>ESCOLA (REFORMA): {{svv29}}</span></p>
+              <p><span>ESCOLA (CONSTRUÇÃO): {{svv30}}</span></p>
+              <p><span>CREI (REFORMA): {{svv31}}</span></p>
+              <p><span>CREI (CONSTRUÇÃO): {{svv32}}</span></p>
+              <p><span>PROGRAMAS E AÇÕES EDUCACIONAIS NOS BAIRROS E COMUNIDADES: {{svv33}}</span></p>
+      </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6" style="padding: 0px 40px;">
+            <h3 style="text-align: center;">Habitação</h3>
+                <p><span>PROGRAMA DE HABITAÇÃO SOCIAL: {{svv34}}</span></p>
+                <p><span>URBANIZAÇÃO DE ZEIS: {{svv35}}</span></p>
+                <p><span>REGULARIZAÇÃO FUNDIÁRIA : {{svv36}}</span></p>
+                <p><span>RESIDENCIAIS (REFORMA): {{svv37}}</span></p>
+                <p><span>RESIDENCIAIS (CONSTRUÇÃO): {{svv38}}</span></p>
+                <p><span>MUDANÇA DE ZONEAMENTO DE ÁREAS (URBANA, RURAL): {{svv39}}</span></p>
+        </div>
+        <div class="col-md-6" style="padding: 0px 40px;">
+          <h3 style="text-align: center;">Saúde</h3>
+              <p><span>UNIDADE DE SAÚDE DA FAMÍLIA (REFORMA): {{svv40}}</span></p>
+              <p><span>UNIDADE DE SAÚDE DA FAMÍLIA (CONSTRUÇÃO): {{svv41}}</span></p>
+              <p><span>UNIDADE BÁSICA DE SAÚDE (REFORMA): {{svv42}}</span></p>
+              <p><span>UNIDADE BÁSICA DE SAÚDE (CONSTRUÇÃO): {{svv43}}</span></p>
+              <p><span>CENTRO DE APOIO PSICOSSOCIAL (REFORMA): {{svv44}}</span></p>
+              <p><span>CENTRO DE APOIO PSICOSSOCIAL (CONSTRUÇÃO): {{svv45}}</span></p>
+              <p><span>CENTRO DE AÇÃO INTEGRAL A SAÚDE (REFORMA): {{svv46}}</span></p>
+              <p><span>CENTRO DE AÇÃO INTEGRAL A SAÚDE (CONSTRUÇÃO): {{svv47}}</span></p>
+              <p><span>HOSPITAL (REFORMA): {{svv48}}</span></p>
+              <p><span>HOSPITAL (CONSTRUÇÃO): {{svv49}}</span></p>
+              <p><span>PROGRAMAS E AÇÕES EM SAÚDE: {{svv50}}</span></p>
+              <p><span>POLÍTICAS DE SAÚDE ANIMAL (AMPLIAÇÃO DOS SERVIÇOS): {{svv51}}</span></p>
+      </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6" style="padding: 0px 40px;">
+            <h3 style="text-align: center;">Infraestrutura</h3>
+                <p><span>PAVIMENTAÇÃO (CALÇAMENTO DE RUAS): {{svv52}}</span></p>
+                <p><span>RECAPEAMENTO ASFALTICO: {{svv35}}</span></p>
+                <p><span>ILUMINAÇÃO PÚBLICA (AMPLIAÇÃO E IMPLANTAÇÃO): {{svv54}}</span></p>
+                <p><span>SERVIÇO DE DRENAGEM E GALERIAS PLUVIAIS: {{svv55}}</span></p>
+                <p><span>MERCADO PÚBLICO (REFORMA): {{svv56}}</span></p>
+                <p><span>FEIRAS LIVRES (REFORMA): {{svv57}}</span></p>
+                <p><span>FEIRAS LIVRES (CONSTRUÇÃO): {{svv58}}</span></p>
+                <p><span>PARQUE PÚBLICO: {{svv59}}</span></p>
+                <p><span>PRAÇAS PÚBLICAS (REFORMA): {{svv60}}</span></p>
+                <p><span>PRAÇAS PÚBLICAS (CONSTRUÇÃO): {{svv61}}</span></p>
+        </div>
+        <div class="col-md-6" style="padding: 0px 40px;">
+          <h3 style="text-align: center;">Meio Ambiente</h3>
+              <p><span>PROGRAMAS E PROJETOS DE INCENTIVO A PRESERVAÇÃO DO MEIO AMBIENTE: {{svv62}}</span></p>
+              <p><span>AÇÕES EDUCACIONAIS EM BAIRROS E COMUNIDADES: {{svv63}}</span></p>
+              <p><span>GALPÃO DE RECICLAGEM: {{svv64}}</span></p>
+              <p><span>LIMPEZA DE RIOS : {{svv65}}</span></p>
+              <p><span>COLETA SELETIVA : {{svv66}}</span></p>
+              <p><span>COLETA SELETIVA : {{svv67}}</span></p>
+              <p><span>PROJETOS DE ARBORIZAÇÃO NOS BAIRROS E COMUNIDADES: {{svv68}}</span></p>
+              <p><span>PROGRAMA DE DOAÇÕES DE MUDAS FRUTIFERAS E ORNAMENTAIS PARA INICIATIVAS CIVIS, COMUNITÁRIAS E DE ASSOSSIAÇÕES : {{svv69}}</span></p>
+              <p><span>LIMPEZA DE PRAIAS: {{svv70}}</span></p>
+              <p><span>INSTALAÇÃO DE CÂMERAS DE MONITORAMENTO: {{svv71}}</span></p>
+              <p><span>TRANSPORTE COLETIVO (AMPLIAÇÃO E MELHORIAS): {{svv72}}</span></p>
+      </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6" style="padding: 0px 40px;">
+            <h3 style="text-align: center;">Mobilidade Urbana</h3>
+                <p><span>CICLOVIA (REFORMA): {{svv73}}</span></p>
+                <p><span>CICLOVIA (CONSTRUÇÃO E AMPLIAÇÃO): {{svv74}}</span></p>
+                <p><span>ACESSIBILIDADE EM ESPAÇOS PÚBLICOS: {{svv75}}</span></p>
+                <p><span>SINALIZAÇÃO (MELHORIAS E AMPLIAÇÃO): {{svv76}}</span></p>
+        </div>
+        </div>
+    </div>
+
+</div>

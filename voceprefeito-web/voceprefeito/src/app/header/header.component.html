@@ -1,0 +1,58 @@
+<!-- Main Header -->
+<header class="main-header">
+
+  <!-- Logo -->
+  <a href="" class="logo">
+    <!-- mini logo for sidebar mini 50x50 pixels -->
+    <span class="logo-lg"><b style="margin-left: 10px">Você Prefeito</b></span>
+  </a>
+
+  <!-- Header Navbar -->
+  <nav class="navbar navbar-static-top" role="navigation">
+    <!-- Sidebar toggle button-->
+    <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+      <span class="sr-only">Toggle navigation</span>
+    </a>
+    <!-- Navbar Right Menu -->
+    <div class="navbar-custom-menu">
+      <ul class="nav navbar-nav">
+        <!-- User Account Menu -->
+        <li class="dropdown user user-menu">
+          <!-- Menu Toggle Button -->
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <!-- The user image in the navbar-->
+            <img [src]="'data:image/'+getImagem()?.type+';base64,'+getImagem()?.base64 | safeHtml" class="user-image" alt="Usuario Imagem">
+            <!-- hidden-xs hides the username on small devices so only the image appears. -->
+            <span class="hidden-xs">{{getName()}}</span>
+          </a>
+          <ul class="dropdown-menu">
+            <!-- The user image in the menu -->
+            <li class="user-header">
+                <img [src]="'data:image/'+getImagem()?.type+';base64,'+getImagem()?.base64 | safeHtml" class="img-circle" alt="Usuario Imagem">
+
+              <p>
+                  {{getName()}}
+              </p>
+            </li>
+            <!-- Menu Footer-->
+            <li class="user-footer">
+              <div class="pull-left">
+                <a href="#" class="btn btn-default btn-flat" [routerLink]="['/profile']">Editar Perfil</a>
+              </div>
+              <div class="pull-right">
+                <a (click)="logout()" class="btn btn-default btn-flat">Sair</a>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li class="session-time">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" (click)="reloadSession()">
+              <i class="fa fa-clock-o"></i>
+              <span class="label label-danger">{{timeLeft}}</span>
+            </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+

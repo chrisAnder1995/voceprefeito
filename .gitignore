@@ -1,0 +1,33 @@
+# Ignore folder settings
+underway/.settings/
+underway-ear/.settings/
+underway-ejb/.settings/
+underway-web/.settings/
+
+# Ignore folder target
+underway/target/
+underway-ear/target/
+underway-ejb/target/
+underway-web/target/
+
+# Ignore project file
+underway/.project
+underway-ear/.project
+underway-ejb/.project
+underway-web/.project
+
+# Ignore DS_Store file
+underway/.DS_Store
+underway-ear/.DS_Store
+underway-ejb/.DS_Store
+underway-web/.DS_Store
+
+# Ignore classpath file
+underway-ejb/.classpath
+underway-web/.classpath
+
+# Ignore factorypath file
+underway-ejb/.factorypath
+underway-web/.factorypath
+/.project
+/.DS_Store

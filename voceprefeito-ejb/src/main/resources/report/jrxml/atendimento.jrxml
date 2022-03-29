@@ -1,0 +1,1150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 6.17.0-6d93193241dd8cc42629e188b94f9e0bc5722efd  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="checkup" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d58945a1-e234-4af5-8e26-9406be41b519">
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<style name="Table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<parameter name="logo_image_path" class="java.lang.String"/>
+	<parameter name="user_name" class="java.lang.String"/>
+	<parameter name="logo_devidea_path" class="java.lang.String"/>
+	<parameter name="report_jasper_path" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="agressor" class="java.lang.Object"/>
+	<field name="mulher" class="java.lang.Object"/>
+	<field name="ocorrencia" class="java.lang.Object"/>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="dataHora" class="java.util.Date"/>
+	<field name="busca" class="com.devidea.enumeration.BuscaServico"/>
+	<field name="comoSoube" class="java.lang.String"/>
+	<field name="descricao" class="java.lang.String"/>
+	<field name="acrescimo" class="java.lang.String"/>
+	<field name="servicosString" class="java.lang.String"/>
+	<field name="suspeita" class="java.lang.Boolean"/>
+	<pageHeader>
+		<band height="51" splitType="Stretch">
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement x="0" y="0" width="70" height="48" uuid="dd4a0568-2323-4574-9e8e-e0455f1156e2"/>
+				<imageExpression><![CDATA[$P{logo_image_path}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement mode="Opaque" x="70" y="4" width="388" height="20" forecolor="#FFFFFF" backcolor="#605CA8" uuid="eca46b23-19c9-461f-b532-a6be2de8d64a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MULHER FORTE]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement mode="Opaque" x="460" y="4" width="94" height="20" forecolor="#FFFFFF" backcolor="#605CA8" uuid="8e52bd05-bf0c-487d-84f6-d50eb705d09e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Open Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="70" y="26" width="388" height="20" forecolor="#FFFFFF" backcolor="#777777" uuid="adb39e14-ecf1-45b1-ab1e-c854f39d2f92"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FICHA DE ATENDIMENTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="460" y="26" width="94" height="20" forecolor="#FFFFFF" backcolor="#777777" uuid="12302023-66ae-4c57-9511-c85aa02d0ce4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[de]]></text>
+			</staticText>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="518" y="26" width="36" height="20" forecolor="#FFFFFF" backcolor="#777777" uuid="3290b03c-f7df-4f6c-8e51-0fa07a2fc61d"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="460" y="26" width="36" height="20" forecolor="#FFFFFF" backcolor="#777777" uuid="c534eeb3-3725-442e-b688-cce3b9ee7987"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="665" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="20" width="555" height="50" uuid="94b8a542-af30-4feb-9a21-a94108b7b95b"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="2" y="8" width="208" height="12" uuid="68987da6-363e-43d7-87fd-e5c43309ceca"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[1. Informações gerais sobre o atendimento]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="36" y="30" width="73" height="12" isPrintWhenDetailOverflows="true" uuid="2e7645fc-5c7a-48a3-aa9e-1e1f25066053"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dataHora}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="3" y="30" width="30" height="12" uuid="961fc5c1-315f-406b-a6b5-a3cc16b71ed8"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="120" y="30" width="86" height="12" uuid="1f3bd44e-f73a-4891-9d23-a2d86e1106b7"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Serviços acessados:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="210" y="30" width="168" height="12" isPrintWhenDetailOverflows="true" uuid="9c0aebb1-dcda-4acd-988d-d529881b3bd4"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{servicosString}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="3" y="49" width="30" height="12" uuid="bb6518cd-1904-420b-95c3-4cf1f2f214dc"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Busca:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="36" y="50" width="73" height="12" isPrintWhenDetailOverflows="true" uuid="51f57e68-a9ff-4279-beb9-e3076e32551e"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{busca}.descricao]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="250" y="49" width="302" height="12" isPrintWhenDetailOverflows="true" uuid="3743f8d1-1779-4eb3-9f0a-316da1215f55"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{comoSoube}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="120" y="49" width="129" height="12" uuid="addd18b0-039a-4e03-8053-5c7af1461be4"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Como soube do Mulher Forte?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="78" width="208" height="12" uuid="d66fd099-2f91-45a2-af34-9bb547de5156"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[2. Dados Pessoais]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="90" width="555" height="185" uuid="d0de1f70-6ad6-486f-93b9-c62f794404e1"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<textField isBlankWhenNull="true">
+				<reportElement x="34" y="100" width="176" height="12" isPrintWhenDetailOverflows="true" uuid="9ee17141-9999-420d-bbb7-33e627f43444"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mulher}.nome]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="5" y="100" width="28" height="12" uuid="a403ce2e-a841-491e-9cfc-49b5aac235b8"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nome:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="538" y="100" width="15" height="12" uuid="94a2f13f-0b31-40f7-a745-3088c89ff4b2"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mulher}.idade]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="511" y="100" width="26" height="12" uuid="8385d257-9609-45dc-be23-e55ea5f6b3c7"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Idade:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="338" y="100" width="66" height="12" isPrintWhenDetailOverflows="true" uuid="1fad18af-fa74-4152-b911-a80b73b9a4e2"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mulher}.cpf]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="317" y="100" width="19" height="12" uuid="ff09fa85-6a3b-465c-bd16-b3806cba0c58"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CPF:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="423" y="100" width="85" height="12" isPrintWhenDetailOverflows="true" uuid="e6f39554-f1ee-4fbe-880c-0a6952844c8d"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mulher}.rg + " - " + $F{mulher}.rgOrgao + " - " + $F{mulher}.rgUf.sigla]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="405" y="100" width="16" height="12" uuid="4b5544d1-ca7b-48a2-b82f-a67a5a93da11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RG:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="59" y="118" width="310" height="12" isPrintWhenDetailOverflows="true" uuid="fa0f680b-e872-4973-9617-870a8e812d0a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mulher}.endereco + " " + $F{mulher}.numero + " " + $F{mulher}.bairro.nome + " " + $F{mulher}.bairro.cidade.nome + " " + $F{mulher}.bairro.cidade.estado.sigla + " " + $F{mulher}.complemento]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="5" y="118" width="50" height="12" uuid="aebb1a8a-0432-482f-9f90-0d27f67c1184"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Endereço:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="373" y="118" width="46" height="12" uuid="e771913d-188b-4398-9dfd-6e8c6cf00909"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Referência:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="419" y="118" width="133" height="12" isPrintWhenDetailOverflows="true" uuid="61de76e3-a883-43c8-a071-061d784a0c0b"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mulher}.pontoReferencia]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="5" y="136" width="52" height="12" uuid="0e3c7107-7bff-4cd1-9b95-9142afd99abb"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Telefone 1:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="59" y="136" width="75" height="12" isPrintWhenDetailOverflows="true" uuid="c349c12d-d7ce-482c-acee-cdb3a5e98ee7"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["(" + $F{mulher}.telefone1.substring(0, 2) + ") " + $F{mulher}.telefone1.substring(2)]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="192" y="136" width="76" height="12" isPrintWhenDetailOverflows="true" uuid="c5d4f858-7cf9-40ba-8806-29b17fdc9373"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["(" + $F{mulher}.telefone2.substring(0, 2) + ") " + $F{mulher}.telefone2.substring(2)]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="138" y="136" width="52" height="12" uuid="13df2856-e3e6-44af-ae79-88e768b107e8"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Telefone 2:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="332" y="136" width="78" height="12" isPrintWhenDetailOverflows="true" uuid="5890939c-c83f-4f3d-b4e5-07f302d851d9"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mulher}.naturalidade]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="271" y="136" width="58" height="12" uuid="c6319f21-4ec3-4feb-b9cc-83d9a8ad4467"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Naturalidade:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="476" y="136" width="76" height="12" isPrintWhenDetailOverflows="true" uuid="03bfe857-039f-42e1-bb7d-59ffa541367c"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mulher}.nacionalidade.nome]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="413" y="136" width="62" height="12" uuid="e09a0c9b-4da2-41e4-b980-52d4d15881a9"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nacionalidade:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="212" y="100" width="52" height="12" uuid="36af4728-a2d9-4278-b397-9822957b2973"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nascimento:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement x="266" y="100" width="48" height="12" isPrintWhenDetailOverflows="true" uuid="163b562d-c3ac-412b-95e6-09af8df96ad6"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mulher}.dataNascimento]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="192" y="154" width="76" height="12" isPrintWhenDetailOverflows="true" uuid="63f22a9a-9f5d-4071-8db6-f332e33ba367"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mulher}.estadoCivil]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="138" y="154" width="52" height="12" uuid="73b5ab25-a80c-452c-976a-e6ee2a30987b"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Estado Civil:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="271" y="154" width="60" height="12" uuid="3b412bd4-cf88-42e9-a5e7-b64bad86d78e"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nome da Mãe:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="332" y="154" width="220" height="12" isPrintWhenDetailOverflows="true" uuid="c1134ea5-a8e5-49a0-8acf-01cd9634129a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mulher}.nomeMae]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="5" y="172" width="52" height="12" uuid="b0c585e3-7745-4a79-8d4b-535db3fec300"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Gestante?]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement x="59" y="172" width="75" height="12" isPrintWhenDetailOverflows="true" uuid="07977b1a-0c1c-475e-8b24-64017c3534d5"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mulher}.tempoGestacao.descricao]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="138" y="172" width="52" height="12" uuid="afb0efdf-f2b1-4250-9ecc-feefce669070"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Etnia:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="192" y="172" width="76" height="12" isPrintWhenDetailOverflows="true" uuid="9ed03db3-338d-43eb-ad4f-4b802b79fe30"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mulher}.etnia.descricao]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="271" y="172" width="60" height="12" uuid="18df5748-64a6-42ec-a53b-84d1cbdc7cab"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Deficiência:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="332" y="172" width="78" height="12" isPrintWhenDetailOverflows="true" uuid="de0731f4-ed21-4905-81ac-7d8c3814e717"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mulher}.deficiencia.descricao]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="414" y="172" width="62" height="12" uuid="c48d863a-3fe8-4154-98a8-2de6740ce208"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Moradia:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="477" y="172" width="76" height="12" isPrintWhenDetailOverflows="true" uuid="3a8ad405-f5e1-4a44-9282-125fec682a07"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mulher}.moradia.descricao]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement positionType="Float" x="50" y="190" width="450" height="1" forecolor="#000000" uuid="04f40019-7914-4f5c-8f35-cd33389ffaf8"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement x="121" y="197" width="75" height="12" isPrintWhenDetailOverflows="true" uuid="62093ec0-8671-441b-8bf7-150d339d24bf"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{mulher}.usaDrogas != null ? ($F{mulher}.usaDrogas ? "Sim" : "Não") : "")]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="5" y="197" width="114" height="12" uuid="176d4220-4b61-4123-b70f-5cd4664654ae"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Faz uso de drogas?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="215" width="114" height="12" uuid="3907ca7d-f3e2-4511-ae0b-cf60a8662e65"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Faz uso de medicamentos?]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement x="121" y="215" width="75" height="12" isPrintWhenDetailOverflows="true" uuid="72c1bee4-583b-40f9-b6d5-3c0f7aac6fee"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{mulher}.usaMedicamentos != null ? ($F{mulher}.usaMedicamentos ? "Sim" : "Não") : "")]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="200" y="197" width="64" height="12" uuid="84cf4315-d980-4bcb-9220-9962fd00c63a"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Drogas:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="266" y="197" width="286" height="12" isPrintWhenDetailOverflows="true" uuid="897d7133-0a67-4c7f-898d-adb4f9fab500"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mulher}.drogasString]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="266" y="215" width="286" height="12" isPrintWhenDetailOverflows="true" uuid="0f6e2f38-7b42-4797-b871-42b9345b85d6"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mulher}.medicamentos]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="200" y="215" width="64" height="12" uuid="0e1399b5-75e8-4d47-b533-accd11937fcc"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Medicamentos:]]></text>
+			</staticText>
+			<line>
+				<reportElement positionType="Float" x="51" y="233" width="450" height="1" forecolor="#000000" uuid="dcc99b42-acd9-4c89-aa01-2722ef73941d"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement x="77" y="258" width="57" height="12" isPrintWhenDetailOverflows="true" uuid="0af24ccd-9c52-411a-8c2b-086f0854e3b7"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{mulher}.aposentada != null ? ($F{mulher}.aposentada ? "Sim" : "Não") : "")]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="220" y="240" width="54" height="12" isPrintWhenDetailOverflows="true" uuid="cb96f1a7-b733-4879-bdba-75d9f1cddc0e"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{mulher}.carteiraAssinada != null ? ($F{mulher}.carteiraAssinada ? "Sim" : "Não") : "")]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="283" y="240" width="75" height="12" uuid="afecd777-7be1-4c19-a578-3d0b221c873c"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Renda Individual:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="185" y="258" width="90" height="12" isPrintWhenDetailOverflows="true" uuid="519677ad-1e64-4723-be73-3e8a4bfb97c0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mulher}.profissao]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="138" y="240" width="80" height="12" uuid="190f8349-4ced-4159-832f-a198bcf925fb"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Carteira Assinada?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="240" width="70" height="12" uuid="cf08e44b-cd18-4172-a257-9a7955026714"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Desempregada?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="258" width="70" height="12" uuid="97037515-16c7-4e5c-be0c-856c8aa86731"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Aposentada?]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="77" y="240" width="54" height="12" isPrintWhenDetailOverflows="true" uuid="cdb2ecb9-073f-460d-8c41-5d8828c22a5c"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{mulher}.desempregada != null ? ($F{mulher}.desempregada ? "Sim" : "Não") : "")]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="362" y="258" width="190" height="12" isPrintWhenDetailOverflows="true" uuid="d234e3d5-ca74-46b9-b11f-4f113580f965"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mulher}.localTrabalho]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="413" y="240" width="76" height="12" uuid="c1827675-5262-4491-9bb9-a2ae7f90fd26"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Outras Rendas:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="491" y="240" width="61" height="12" isPrintWhenDetailOverflows="true" uuid="6bbc3ddf-c405-465b-8977-f1fa5691f0be"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mulher}.outrasRendasDomiciliares]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="362" y="240" width="48" height="12" isPrintWhenDetailOverflows="true" uuid="16043b8c-af15-4043-bbf6-61c3cd007cd2"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mulher}.rendaIndividual]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="278" y="258" width="80" height="12" uuid="9b774e69-bf8c-4488-a619-e941a74f36a0"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Local de Trabalho:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="138" y="258" width="45" height="12" uuid="b4531fd9-ff85-43bc-a716-6b8d4afb6be9"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Profissão:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="284" width="208" height="12" uuid="d000f15a-4acd-4b85-bd4d-5b218ae036d6"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[3. Agressor]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="297" width="555" height="160" uuid="5e787596-a27a-4402-a528-277c808c173f"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<textField isBlankWhenNull="true">
+				<reportElement x="312" y="301" width="66" height="12" isPrintWhenDetailOverflows="true" uuid="cb1f01f4-a1c7-49d3-9a6d-07276bad6f5e"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{agressor}.estadoCivil.descricao]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="533" y="301" width="20" height="12" uuid="71205e03-5ee5-45ef-9ff4-da23435120d1"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{agressor}.idade]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="256" y="301" width="55" height="12" uuid="5e02116b-ed7c-481f-b034-a3256dc80429"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Estado Civil:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="435" y="301" width="66" height="12" isPrintWhenDetailOverflows="true" uuid="c5bc5344-b170-4bb1-a54d-82d1e70e7543"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{agressor}.parentesco.descricao]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="5" y="301" width="28" height="12" uuid="a754521d-551a-4599-9b3b-1fd7aa09fcdd"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nome:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="506" y="301" width="26" height="12" uuid="aa4cb3e3-4b69-4b6b-b4c9-7ab7e709219d"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Idade:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="34" y="301" width="220" height="12" isPrintWhenDetailOverflows="true" uuid="f210e63e-a6f5-4a63-b36f-bbe696fd79e4"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{agressor}.nome]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="384" y="301" width="50" height="12" uuid="970b985a-c2f1-4745-b7c0-3ab38da49172"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Parentesco:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="58" y="154" width="76" height="12" isPrintWhenDetailOverflows="true" uuid="ebc35b7c-4980-4899-b01f-060bfc51e895"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mulher}.orientacaoSexual.nome]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="4" y="154" width="52" height="12" uuid="76ca238b-4158-4a85-b760-eff700ffe7ff"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Open Sans" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Orien. Sexual:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="318" width="28" height="12" uuid="ea72e396-c10f-423b-8f76-368e01df9aa2"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Etnia:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="34" y="318" width="56" height="12" isPrintWhenDetailOverflows="true" uuid="28480d56-5d6b-42b0-b6f4-ad471f04bfcd"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{agressor}.etnia.descricao]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="90" y="318" width="78" height="12" uuid="e79025c6-9394-4a6b-84cd-194e6eea81c6"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Orientação Sexual:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="171" y="318" width="82" height="12" isPrintWhenDetailOverflows="true" uuid="35a338a7-1a6e-4bac-aebf-90b737911257"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{agressor}.orientacaoSexual.nome]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="256" y="318" width="54" height="12" uuid="d5ca70d7-0a4b-41b0-99cc-4084393b0007"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Deficiência:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="311" y="318" width="68" height="12" isPrintWhenDetailOverflows="true" uuid="54f109cf-afa2-45b0-b587-59843f68eec3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{agressor}.deficiencia.descricao]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement positionType="Float" x="50" y="336" width="450" height="1" forecolor="#000000" uuid="4ff0c83f-42e8-4f09-aba0-758e7d04af4d"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="4" y="343" width="70" height="12" uuid="9104ecdf-d4c9-43a4-9906-a764f5d6251f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Desempregado?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="276" y="343" width="70" height="12" uuid="2ac4be99-06d6-4447-957a-120f7a8ae322"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Aposentado?]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement x="348" y="343" width="42" height="12" isPrintWhenDetailOverflows="true" uuid="37457b7b-215b-4095-8c26-efde3c313b7c"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{agressor}.aposentado != null ? ($F{agressor}.aposentado ? "Sim" : "Não") : "")]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="76" y="343" width="54" height="12" isPrintWhenDetailOverflows="true" uuid="d9a47efe-b033-4547-b559-0d9489c86c66"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{agressor}.desempregado != null ? ($F{agressor}.desempregado ? "Sim" : "Não") : "")]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="137" y="343" width="80" height="12" uuid="2833cd4c-c135-4b0f-abbe-f673830ac39a"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Carteira Assinada?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="164" y="361" width="45" height="12" uuid="b86df647-141f-437b-b77f-905c95cfeb0a"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Profissão:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="211" y="361" width="120" height="12" isPrintWhenDetailOverflows="true" uuid="51a04648-46ce-4d88-aaa0-74cf065b74e9"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{agressor}.profissao]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="219" y="343" width="54" height="12" isPrintWhenDetailOverflows="true" uuid="2e585443-ac4b-4e98-adb6-d1ba138d5263"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{agressor}.carteiraAssinada != null ? ($F{agressor}.carteiraAssinada ? "Sim" : "Não") : "")]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="399" y="343" width="30" height="12" uuid="635cc717-156f-45ac-9a14-cc90a503f68c"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Renda:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="431" y="343" width="48" height="12" isPrintWhenDetailOverflows="true" uuid="ce56d50f-304e-4bbb-83ca-61eb0e76c42a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{agressor}.renda]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="335" y="361" width="80" height="12" uuid="2a9ee021-78c9-4a08-bf60-d0c7e5eb580d"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Local de Trabalho:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="416" y="361" width="134" height="12" isPrintWhenDetailOverflows="true" uuid="034bec90-04ad-4dfd-9765-decb12ed46e0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{agressor}.localTrabalho]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="51" y="361" width="112" height="12" isPrintWhenDetailOverflows="true" uuid="4133822e-082a-46e6-8b0f-4b0d2206d40f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{agressor}.ocupacao]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="4" y="361" width="45" height="12" uuid="a552d5c8-3cc4-427a-b6f3-540043d8f010"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ocupação:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="235" y="386" width="315" height="12" isPrintWhenDetailOverflows="true" uuid="80ce3019-befe-41c9-8528-3fb448b6b515"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{agressor}.drogasString]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="168" y="404" width="64" height="12" uuid="0c2d18fe-2150-4f52-87f6-d3dbbd06bbda"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Medicamentos:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="235" y="404" width="314" height="12" isPrintWhenDetailOverflows="true" uuid="d4a44217-ef20-4643-8a6f-d6bdd73f4d18"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{agressor}.medicamentos]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="168" y="386" width="64" height="12" uuid="461abfca-bccb-4108-8e5b-2a7a3c6ceff3"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Drogas:]]></text>
+			</staticText>
+			<line>
+				<reportElement positionType="Float" x="48" y="379" width="450" height="1" forecolor="#000000" uuid="a9404930-f896-4e4c-ae55-e596970102c4"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement x="122" y="404" width="42" height="12" isPrintWhenDetailOverflows="true" uuid="a438bc73-3518-4d41-a835-3a6836ed4b01"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{agressor}.usaMedicamentos != null ? ($F{agressor}.usaMedicamentos ? "Sim" : "Não") : "")]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement x="122" y="386" width="42" height="12" isPrintWhenDetailOverflows="true" uuid="b1aff2a1-8135-4257-b935-caed2f48bc71"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{agressor}.usaDrogas != null ? ($F{agressor}.usaDrogas ? "Sim" : "Não") : "")]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="3" y="386" width="117" height="12" uuid="1c199e80-a706-4b48-a10b-e13806d99697"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Faz uso de drogas?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="404" width="117" height="12" uuid="b9d4283a-aae2-41d4-87f1-d7c5b00f78cd"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Faz uso de medicamentos?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="379" y="318" width="55" height="12" uuid="bc1b503b-38df-4b8d-a62b-0ed2fa5f48d2"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Escolaridade:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="435" y="318" width="116" height="12" isPrintWhenDetailOverflows="true" uuid="4c43c623-6f24-469e-868b-46e2db849db3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{agressor}.escolaridade.descricao]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="3" y="422" width="117" height="12" uuid="99b0aa46-6539-413c-8fe1-378a7581f517"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Violência contra familiares?]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement x="122" y="422" width="42" height="12" isPrintWhenDetailOverflows="true" uuid="631b22c2-4678-4c58-87b6-b08c80b66a76"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{agressor}.violenciaContraFamiliares != null ? ($F{agressor}.violenciaContraFamiliares ? "Sim" : "Não") : "")]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement x="272" y="422" width="42" height="12" isPrintWhenDetailOverflows="true" uuid="9da6226d-0b3a-49dd-bbd8-d6bb472bd043"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{agressor}.violenciaContraOutros != null ? ($F{agressor}.violenciaContraOutros ? "Sim" : "Não") : "")]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="168" y="422" width="103" height="12" uuid="a546be2d-cf12-4838-9f07-fb4184287ce7"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Violência contra outros?]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement x="452" y="422" width="42" height="12" isPrintWhenDetailOverflows="true" uuid="ade88873-4e0c-497f-b769-7cfc8da61ce6"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{agressor}.antecedentesCriminais != null ? ($F{agressor}.antecedentesCriminais ? "Sim" : "Não") : "")]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="318" y="422" width="132" height="12" uuid="5beea9a6-a7c3-4dad-a250-2b67cda70ea7"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Possui antecedentes criminais?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="440" width="55" height="12" uuid="f6e61ba6-0257-4f3b-bd93-d3ab1d226ff9"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Já foi preso?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="120" y="440" width="75" height="12" uuid="f7841675-507e-4f26-93af-d3030be0c3df"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Motivo da Prisão:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement x="60" y="440" width="42" height="12" isPrintWhenDetailOverflows="true" uuid="0d3e8af2-933b-4bf1-9d1e-95860d61f48c"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{agressor}.foiPreso != null ? ($F{agressor}.foiPreso ? "Sim" : "Não") : "")]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="198" y="440" width="350" height="12" isPrintWhenDetailOverflows="true" uuid="f902bb1f-bc13-4e0c-8a18-4888402a9a5a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{agressor}.motivoPrisao]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="2" y="464" width="208" height="12" uuid="07c9bfd8-d0fa-4797-8895-8fad44f35683"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[4. Ocorrência]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="477" width="555" height="183" uuid="43b7a459-8fef-4840-baf0-e5ffd16edd78"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement x="31" y="481" width="48" height="12" isPrintWhenDetailOverflows="true" uuid="919221c6-415f-4b99-b43c-aed5a5ab230f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ocorrencia}.data]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="3" y="481" width="25" height="12" uuid="6e6ba8e6-930d-466d-a58f-6b3b349d7af5"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="81" y="481" width="38" height="12" uuid="380f4b93-c028-400e-8aab-2f16ab02526b"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Horário:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="121" y="481" width="66" height="12" isPrintWhenDetailOverflows="true" uuid="8fddfd39-4a55-4b09-9be4-e0cad376d482"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ocorrencia}.turno.descricao]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="190" y="481" width="28" height="12" uuid="28c0c33b-9218-4c4a-a1c6-85af6f442403"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Local:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="220" y="481" width="98" height="12" isPrintWhenDetailOverflows="true" uuid="9a94ab77-3086-4e6f-887a-a15af10eca28"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ocorrencia}.localOcorrencia.nome]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="2" y="496" width="97" height="12" uuid="0e851591-78a7-4312-af3d-693ea08f8e0b"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Violências Físicas:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="99" y="496" width="451" height="12" isPrintWhenDetailOverflows="true" uuid="4ef5d3d0-0444-4760-a2f4-b701cd3237d0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ocorrencia}.violenciasFisicas]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="99" y="514" width="451" height="12" isPrintWhenDetailOverflows="true" uuid="26aa3545-6f01-4fe3-9e94-5b4155fa1364"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ocorrencia}.violenciasPsicologicas]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="2" y="514" width="97" height="12" uuid="c19b4e40-1a8c-4ad0-afe5-a2e2b52d6f0d"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Violência Psicológicas:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="550" width="97" height="12" uuid="70e6b3de-ad31-4396-9852-d1328d688ddf"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Violências Morais:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="99" y="550" width="451" height="12" isPrintWhenDetailOverflows="true" uuid="443b8b19-90c0-4ee2-bc17-11befdf4d352"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ocorrencia}.violenciasMorais]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="2" y="532" width="97" height="12" uuid="e59fe9c9-40c6-4ef4-bcfa-fd7323d5d9c4"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Violência Patrimoniais:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="99" y="532" width="451" height="12" isPrintWhenDetailOverflows="true" uuid="6feccea9-7723-42c4-8acd-479594c031be"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ocorrencia}.violenciasPatrimoniais]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="99" y="568" width="451" height="12" isPrintWhenDetailOverflows="true" uuid="9989e0f1-d41e-4f03-ae63-b17f6a4acae5"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ocorrencia}.violenciasSexuais]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="2" y="568" width="97" height="12" uuid="1d011473-9619-4791-9f59-4d1af7010e0c"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Violências Sexuais:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="3" y="602" width="532" height="58" isPrintWhenDetailOverflows="true" uuid="ac8e5c9c-bf29-4235-9684-04de88780d64"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{descricao}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="3" y="590" width="61" height="12" uuid="3caa14d0-bc46-45dd-be1d-936f9f44a6ba"/>
+				<textElement markup="html">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descrição:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="366" y="481" width="184" height="12" isPrintWhenDetailOverflows="true" uuid="a732bdc7-0139-45ba-babe-6404e5aff0d5"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ocorrencia}.endereco.toString() + " " + $F{ocorrencia}.numero + " " + $F{ocorrencia}.bairro.nome + " " + $F{ocorrencia}.bairro.cidade.nome + " " + $F{ocorrencia}.bairro.cidade.estado.sigla]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="321" y="481" width="44" height="12" uuid="ffe7a3cd-3826-437a-a1f8-e7ce8acc9e57"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Endereço:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="383" y="25" width="168" height="22" forecolor="#FF0505" uuid="b35dc83d-5095-43eb-87c8-961db5afdecf">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Open Sans" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{suspeita} != null ? ($F{suspeita} ? "SUSPEITA DA EQUIPE" : "") : "")]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="26">
+			<staticText>
+				<reportElement x="435" y="6" width="100" height="20" uuid="827deac4-9687-48ac-a04c-a960d4c147d7"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Open Sans" size="8"/>
+				</textElement>
+				<text><![CDATA[Desenvolvido por]]></text>
+			</staticText>
+			<image>
+				<reportElement x="542" y="6" width="15" height="20" uuid="5fed6017-bc4c-4161-a32c-c06a52e054bd"/>
+				<imageExpression><![CDATA[$P{logo_devidea_path}]]></imageExpression>
+			</image>
+		</band>
+	</pageFooter>
+</jasperReport>

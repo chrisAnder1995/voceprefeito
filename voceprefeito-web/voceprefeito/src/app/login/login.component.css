@@ -1,0 +1,100 @@
+button {
+	width: 100%;
+}
+
+.div-login{
+	position: inherit !important;
+}
+
+.without-padding{
+	padding: 0px;
+}
+
+.login-wrapper{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	padding: 0 8 0 8 !important;
+}
+
+/* #btnLogin{
+	background-color: #605CA8;
+	border-color: #605CA8;
+} */
+
+.login-extBox {
+	position: absolute;
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	height: 100%;
+	width: 100%;
+	/*background-color:#fff;*/
+	background-color: #242424;
+	/* background-image: url('../../assets/img/background.png'); */
+	background-repeat: no-repeat;
+	background-position: center top;
+}
+
+@media(max-width: 1024px) {
+	.login-extBox {
+		/*background-image: url('../../assets/img/sup_bg_1024.png');*/
+		background-size:     cover;                      /* <------ */
+		background-repeat:   no-repeat;
+		background-position: top center; 
+	}
+}
+
+@media(min-width: 1025px) and (max-width: 1280px) {
+	.login-extBox {
+		/*background-image: url('../../assets/img/sup_bg_1280.png');*/
+		background-size:     cover;                      /* <------ */
+		background-repeat:   no-repeat;
+		background-position: top center; 
+	}
+}
+
+@media(min-width: 1281px) {
+	.login-extBox {
+		/*background-image: url('../../assets/img/sup_bg_1440.png');*/
+		background-size:     cover;                      /* <------ */
+		background-repeat:   no-repeat;
+		background-position: top center; 
+	}
+}
+
+.login-panel {
+	padding: 30px 30px 30px 30px;
+	width: 450px;
+	box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.5), 0 6px 20px 0
+		rgba(0, 0, 0, 0.39);
+	border-radius: 10px;
+  background-color: #FFFFFF;
+  float: left;
+}
+
+.login-panel>.btn{
+  margin-top: 10px;
+  margin-right: 30px;
+}
+
+.login-logo{
+  height: 35px;
+  margin-bottom: 15px;
+}
+
+.login-logo2{
+	height: 140px;
+	margin-bottom: 15px;
+  }
+
+.login-panel>rv-form-group{
+  text-align: left;
+}
+
+.login-panel>.form-group{
+  text-align: left;
+}
+
+

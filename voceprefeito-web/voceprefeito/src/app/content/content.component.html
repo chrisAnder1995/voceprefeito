@@ -1,0 +1,35 @@
+<!-- Content Wrapper. Contains page content -->
+<div id="contentWrapper" class="content-wrapper">
+
+  <div class="alert alert-warning alert-dismissible" *ngIf="showAlertSession">
+    <button type="button" class="close" (click)="showAlertSession = false">×</button>
+    <h4><i class="icon fa fa-warning"></i> Atenção</h4>
+    Seu tempo de sessão está próximo do fim - {{timeLeft}}
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown" (click)="reloadSession()"> Renovar sessão </a>
+  </div>
+
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+
+    <h1>
+      {{title}}
+    </h1>
+    <ol class="breadcrumb" innerHTML='{{mapHTML}}' >
+    </ol>
+  </section>
+
+  <!-- Main content -->
+  <section id="contentComponent" class="content container-fluid">
+
+    <router-outlet></router-outlet>
+
+    <button id ="showLoginModal" type="button" class="btn btn-primary btn-sm" data-original-title="Adicionar" data-toggle="modal" data-target="#modal-login" style="display: none">
+    </button>
+  </section>
+  <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+<di-modal title="Login" modalId="modal-login" [footer]="false" #loginModal>
+    <di-login modal (modalResult)="login($event)"></di-login>
+</di-modal>

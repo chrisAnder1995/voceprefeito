@@ -1,0 +1,56 @@
+<div class="box box-primary">
+    <div class="overlay" *ngIf="showLoading && modal == undefined">
+        <label class="fa">
+            <i class="fa fa-refresh fa-spin"></i>
+            <label style="margin-left: 10px; font-family: 'caviar-dreams','Helvetica Neue',Helvetica,Arial,sans-serif;">
+            Aguarde...
+            </label>
+        </label>
+    </div>
+  <div class="box-header with-border">
+    <h3 class="box-title">Cadastro de País</h3>
+    <div class="pull-right box-tools">
+      <button type="button" class="btn btn-primary btn-sm" data-original-title="Voltar" (click)="closeForm()" *ngIf="modal == undefined">
+        <i class="fa fa-times"></i></button>
+    </div>
+  </div>
+
+  <div class="box-body">
+    <di-message [message]="message" [successMessage]="successMessage" [errorMessage]="errorMessage"></di-message>
+    <form #form="ngForm">
+      <div class="row">
+        <div class="col-sm-12 col-md-12">
+          <di-form-group label="Nome" withoutStyle="false" errorMessage="Campo obrigatório">
+            <input type="text" class="form-control" placeholder="Nome" [(ngModel)]="object.nome" name="nome" required/>
+          </di-form-group>
+        </div>
+      </div>
+
+      <button type="button" class="btn btn-danger pull-left" data-toggle="modal" data-target="#modal-default" *ngIf="object.id">Apagar</button>
+      <button type="submit" class="btn btn-primary pull-right" [disabled]="saveDisabled" (click)="save(form)">Salvar</button>
+    </form>
+  </div>
+</div>
+
+
+
+<div class="modal fade in" id="modal-default" style="padding-right: 15px;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span></button>
+                <h4 class="modal-title">Confirmação de Exclusão</h4>
+            </div>
+            <div class="modal-body">
+                <p>Tem certeza que deseja apagar o registro <span style="font-weight: bold"> {{object.nome}}</span>?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="delete()">
+                    <i class="fa fa-trash"></i> Apagar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

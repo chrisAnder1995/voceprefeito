@@ -1,0 +1,38 @@
+<div [class]="'login-wrapper login-extBox ' + ifModal('div-login')">
+  <form #f="ngForm" class="form-horizontal">
+      <div class="login-panel">
+        <div class="text-center">
+          <img src="assets\img\nova-logo.png" class="login-logo2" />
+        </div>
+
+        <di-message style="width: 100%;border-radius: 50px !important;text-align: center;" [message]="message" [successMessage]="successMessage" [errorMessage]="errorMessage"></di-message>
+
+
+        <di-form-group length="col-sm-12" label="E-mail" withoutStyle=true>
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+              <input type="email" class="form-control" placeholder="E-mail" [(ngModel)]="email" name="email">
+            </div>
+          </di-form-group>
+          <di-form-group length="col-sm-12" label="Senha" withoutStyle=true>
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-key"></i></span>
+              <input type="password" class="form-control" placeholder="Senha" [(ngModel)]="senha" name="senha">
+            </div>
+          </di-form-group>
+
+        <div length="col-sm-12" class="row">
+          <div class="col-sm-12 col-md-12 without-padding">
+            <button type="submit" style="background-color: #cc353a;
+            color: white;
+            height: 33px;
+            border-color: #cc353a;" id="btnLogin" (click)="login()">Login</button>
+          </div>
+        </div> <br />
+        <div class="text-center">
+          <img src="assets\img\logoumti.png" class="login-logo" />
+        </div>
+      </div>
+  </form>
+</div>
+<di-login-footer [showSupportLink]="true"></di-login-footer>

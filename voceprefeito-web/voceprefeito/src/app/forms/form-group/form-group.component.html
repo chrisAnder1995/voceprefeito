@@ -1,0 +1,5 @@
+<div class="form-group {{classLength}}" [class.has-error]="hasError()" [class.has-success]="hasSuccess()">
+  <label>{{label}}{{asterisk()}}</label>
+  <ng-content></ng-content>
+  <span class="help-block" *ngIf="hasError() && errorMessage.length > 0"><i class="fa fa-remove"></i> {{errorMessage}}</span>
+</div>

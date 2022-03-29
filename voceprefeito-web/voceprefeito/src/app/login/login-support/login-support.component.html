@@ -1,0 +1,85 @@
+<div class="login-support login-wrapper login-extBox">
+  <div class="login-panel">
+    <div class="text-center">
+      <img src="assets\img\logo_complete.png" class="login-logo" />
+    </div>
+    <div class="overlay" *ngIf="showLoading">
+      <label style="margin-left: 165px;" class="fa">
+          <i class="fa fa-refresh fa-spin"></i>
+          <label style="text-align: center;margin-left: 10px; font-family: 'caviar-dreams','Helvetica Neue',Helvetica,Arial,sans-serif;">
+          Aguarde...
+          </label>
+      </label>
+    </div>
+    <br />
+    <div class="text-left row">
+      <div class="col-sm-6 col-md-6">
+        <br />
+        <h3>Suporte</h3>
+        <br />
+
+        <div class="row">
+          <div class="col-sm-6 col-md-6">
+            <p>
+              <label>
+                <!-- <i class="fa fa-envelope"></i> -->
+                 contact@devidea.com.br</label>
+            </p>
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+              <a [routerLink]="['/login']">
+                Voltar ao login
+              </a>
+            </div>
+          </div>
+      </div>
+
+      <div class="col-sm-6 col-md-6">
+        <di-message [message]="message" [successMessage]="successMessage" [errorMessage]="errorMessage"></di-message>
+        <div class="row">
+          <div class="col-sm-12 col-md-12">
+          <form #form="ngForm" enctype="multipart/form-data">
+            <div class="row">
+              <div class="col-sm-12 col-md-12">
+                <label>Nome</label>
+                <input type="text" class="form-control" placeholder="Nome" [(ngModel)]="contactName" name="name" required/>
+              </div>
+            </div>
+            <br />
+            <div class="row">
+              <div class="col-sm-12 col-md-12">
+                <label>E-mail</label>
+                <input type="text" class="form-control" placeholder="E-mail" [(ngModel)]="contactMail" name="mail" required/>
+              </div>
+            </div>
+            <br />
+            <div class="row">
+              <div class="col-sm-12 col-md-12">
+                <label>Assunto</label>
+                <input type="text" class="form-control" placeholder="Assunto" [(ngModel)]="contactSubject" name="subject" required/>
+              </div>
+            </div>
+            <br />
+            <div class="row">
+              <div class="col-sm-12 col-md-12">
+                <label>Messagem</label>
+                <textarea class="form-control" [(ngModel)]="contactMessage" name="message" rows="4" required></textarea>
+              </div>
+            </div>
+            <br />
+            <div class="row">
+              <div class="col-sm-12 col-md-12">
+                <button type="submit" class="btn btn-primary pull-right" (click)="sendEmail()">Send</button>
+              </div>
+            </div>
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<di-login-footer [showSupportLink]="false"></di-login-footer>

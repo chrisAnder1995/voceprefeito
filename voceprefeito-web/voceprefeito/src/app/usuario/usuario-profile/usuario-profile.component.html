@@ -1,0 +1,79 @@
+<div class="box box-primary">
+  <div class="box-header with-border">
+  </div>
+
+  <div class="box-body">
+    <di-message [message]="message" [successMessage]="successMessage" [errorMessage]="errorMessage"></di-message>
+    <form #form="ngForm">
+      <div class="row">
+        <div class="col-sm-12 col-md-3">
+          <div class="row">
+            <div class="col-sm-12 col-md-12 d-flex justify-content-center align-items-center">
+              <label>
+
+                <img [src]="'data:image/'+imagem?.type+';base64,'+imagem?.base64 | safeHtml" class="rounded-circle mx-auto" alt="Usuario Imagem" style="width: 150px; height: 150px;" />
+                <input type="file" name="uploadVesselImagem" (change)="onUpload($event)" accept="image/*" 
+                  [(ngModel)]="usuario.imagem" hidden="true"
+                  class="custom-file-imagem" id="usuarioImagem" aria-describedby="usuarioImagem" >
+              </label>
+            </div>
+            <div class="col-sm-12 col-md-12 d-flex justify-content-center align-items-center">
+              <label>Clique para editar</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-12 col-md-9">
+          <div class="row">
+            <div class="col-sm-6">
+              <di-form-group label="Nome" withoutStyle="false" errorMessage="Campo obrigatório">
+                  <input type="text" class="form-control" placeholder="Nome" [(ngModel)]="usuario.nome" name="name" required />
+              </di-form-group>
+            </div>
+            
+          </div>
+
+          <div class="row">
+              <div class="col-sm-12 col-md-12">
+                <di-form-group label="E-mail" withoutStyle="false" errorMessage="Invalid E-mail">
+                    <input type="text" class="form-control" placeholder="E-mail" 
+                      [(ngModel)]="usuario.email" name="email" required 
+                      pattern="[a-z0-9._-]*@[a-z0-9]+(\.[a-z0-9-]+)+(\.[a-z0-9-]+)*"/>
+                </di-form-group>
+              </div>
+          </div>
+    
+          <div class="row">
+            <div class="col-sm-12 col-md-6">
+              <di-form-group label="Nova senha" withoutStyle="false" errorMessage="Campo obrigatório">
+                  <input type="password" class="form-control" placeholder="Senha" [(ngModel)]="senha" name="senha"/>
+              </di-form-group>
+            </div>
+    
+            <div class="col-sm-12 col-md-6">
+              <di-form-group label="Confirme a senha" withoutStyle="false" errorMessage="Campo obrigatório">
+                  <input type="password" class="form-control" placeholder="Confirme a senha" [(ngModel)]="senhaConfirm" name="senhaConfirm" />
+              </di-form-group>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <br/>
+
+      <image-cropper
+          [imageChangedEvent]="imageChangedEvent"
+          [maintainAspectRatio]="true"
+          [aspectRatio]="1"
+          [resizeToWidth]="128"
+          format="png"
+          (imageCropped)="imageCropped($event)"
+          (imageLoaded)="imageLoaded()"
+          (cropperReady)="cropperReady()"
+          (loadImageFailed)="loadImageFailed()"
+      ></image-cropper>
+
+      <button type="submit" class="btn btn-primary pull-right" [disabled]="saveDisabled" (click)="save(form)">Salvar</button>
+    </form>
+  </div>
+</div>

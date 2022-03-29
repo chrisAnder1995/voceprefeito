@@ -1,0 +1,31 @@
+@font-face {
+    font-family: 'caviar-dreams';
+    src: url('../font/CaviarDreams.ttf'),
+         format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'caviar-dreams';
+    src: url('../font/CaviarDreams_Bold.ttf'),
+         format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'caviar-dreams';
+    src: url('../font/CaviarDreams_Italic.ttf'),
+         format('truetype');
+    font-weight: normal;
+    font-style: italic, oblique;
+}
+
+@font-face {
+    font-family: 'caviar-dreams';
+    src: url('../font/CaviarDreams_BoldItalic.ttf'),
+         format('truetype');
+    font-weight: bold;
+    font-style: italic, oblique;
+}

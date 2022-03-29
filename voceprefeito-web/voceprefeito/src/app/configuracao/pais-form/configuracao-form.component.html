@@ -1,0 +1,33 @@
+<div class="box box-primary">
+    <div class="overlay" *ngIf="showLoading && modal == undefined">
+        <label class="fa">
+            <i class="fa fa-refresh fa-spin"></i>
+            <label style="margin-left: 10px; font-family: 'caviar-dreams','Helvetica Neue',Helvetica,Arial,sans-serif;">
+            Aguarde...
+            </label>
+        </label>
+    </div>
+
+  <div class="box-body">
+    <di-message [message]="message" [successMessage]="successMessage" [errorMessage]="errorMessage"></di-message>
+    <form #form="ngForm">
+      <div class="row">
+        <div class="col-sm-9 col-md-9">
+          <di-form-group label="Nome do Centro de Referência" withoutStyle="false" errorMessage="Campo obrigatório">
+            <input type="text" class="form-control" placeholder="Nome" [(ngModel)]="object.nome" name="nome" required/>
+          </di-form-group>
+        </div>
+        <div class="col-sm-3 col-md-3">
+          <di-form-group label=" Quantidade de Dias Habilitados para Edição" withoutStyle="false" errorMessage="Campo obrigatório">
+            <input type="text" class="form-control" placeholder="" [(ngModel)]="object.qntDias" name="qntDias" required/>
+          </di-form-group>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary pull-right" [disabled]="saveDisabled" (click)="save(form)">Salvar</button>
+    </form>
+  </div>
+</div>
+
+
+

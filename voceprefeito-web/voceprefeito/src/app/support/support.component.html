@@ -1,0 +1,64 @@
+<div class="box box-primary">
+  <div class="box-header with-border">
+    <h3 class="box-title">More information</h3>
+  </div>
+
+  <div class="box-body">
+    <div class="row">
+      <div class="col-sm-12 col-md-12">
+        <p>
+          <strong>Você Prefeito</strong>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-12">
+        <p>
+          <label><i class="fa fa-location-arrow"></i> 19735 Turnberry Way, Miami, FL 33180 USA</label>
+        </p>
+      </div>
+    </div>
+     
+    <div class="row">
+      <div class="col-sm-12 col-md-12">
+        <p>
+          <label><i class="fa fa-phone"></i> 1-833-UMS4YOU (867-4968)</label>
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12 col-md-12">
+        <p>
+          <label><i class="fa fa-envelope"></i> contact@devidea.com</label>
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <form #form="ngForm" enctype="multipart/form-data">
+        <div class="row">
+          <div class="col-sm-12 col-md-12">
+            <di-form-group label="Nome" withoutStyle="false" errorMessage="Field Required">
+                <input type="text" class="form-control" placeholder="Nome" [(ngModel)]="contactName" name="name" required/>
+            </di-form-group>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-12">
+            <di-form-group label="Email Address" withoutStyle="false" errorMessage="Field Required">
+                <input type="text" class="form-control" placeholder="Email Address" [(ngModel)]="contactMail" name="mail" required/>
+            </di-form-group>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-12">
+            <di-form-group label="Subject" withoutStyle="false" errorMessage="Field Required">
+                <input type="text" class="form-control" placeholder="Subject" [(ngModel)]="contactSubject" name="subject" required/>
+            </di-form-group>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

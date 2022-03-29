@@ -1,0 +1,80 @@
+
+.html{
+    background-color: #f9fafc !important;
+}
+
+.checked {
+    color: orange;
+  }
+
+.stars{
+    padding: 20px 439px;
+}
+
+.stars :hover{
+    cursor: pointer;
+    color: orange;
+}
+
+.rating{
+    position: absolute;
+    top:  55%;
+    left: 50%;
+    transform: translate(-50%,-50%) rotateY(180deg);
+    display: flex;
+}
+
+.rating input{
+    display: none;
+}
+
+.rating label{
+    display: block;
+    cursor: pointer;
+    width: 50px;
+}
+
+.rating label:before{
+    content: '\f005';
+    font-family: fontAwesome;
+    position: absolute;
+    display: block;
+    font-size: 50px;
+    color:101010;
+}
+
+.rating label:after{
+    content: '\f005';
+    font-family: fontAwesome;
+    position: absolute;
+    display: block;
+    font-size: 50px;
+    color:orange;
+    top: 0;
+    opacity: 0;
+    transition: .5s;
+    text-shadow:  0 2px 5px rgba(0,0,0, .5);
+}
+
+.rating label:hover:after,
+.rating label:hover ~ label:after,
+.rating input:checked ~ label:after{
+    opacity: 1;
+}
+
+.textoAvaliacao{
+    color: orange;
+    font-weight: bold;
+    position: absolute;
+    top: 65%;
+    left: 49%;
+}
+
+.tituloAvaliacao{
+    color: orange;
+    font-weight: bold;
+    position: absolute;
+    top: 47%;
+    left: 32%;
+}
+

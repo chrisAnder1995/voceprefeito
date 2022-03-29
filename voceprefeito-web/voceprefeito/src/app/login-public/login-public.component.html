@@ -1,0 +1,42 @@
+
+<div [class]="'login-wrapper login-extBox col-md-3 ' + ifModal('div-login')">
+  
+   <div  class="col-lg-3 col-xs-12 col-sm-12 formulario">
+    <form #f="ngForm" class="form-horizontal">
+        <div class="login-panel">
+        
+          <div class="text-center">
+            <img src="assets\img\logopmjp.png" class="login-logo3" />
+          </div>
+          <div class="text-center">
+            <img src="assets\img\voceprefeito.png" class="login-logo4" />
+          </div>
+  
+          <di-message style="width: 100%;border-radius: 50px !important;text-align: center;" [message]="message" [successMessage]="successMessage" [errorMessage]="errorMessage"></di-message>
+  
+  
+            <di-form-group length="col-sm-12" label="CPF" withoutStyle=true>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <input type="text" class="form-control" placeholder="Digite seu CPF" [(ngModel)]="cpf" mask="000.000.000-00"  name="cpf">
+              </div>
+            </di-form-group>
+  
+          <div length="col-sm-12" class="row">
+            <div class="col-sm-12 col-md-12 without-padding">
+              <button type="submit" style="background-color: #cc353a;
+              color: white;
+              height: 33px;
+              border-color: #cc353a;" (click)="login()">Entrar</button>
+            </div>
+          </div> <br />
+          <div class="text-center">
+            <img src="assets\img\logoumti.png" class="login-logo" />
+          </div>
+          <a class="btn btn-right"  [routerLink]="['/login']">
+            Login
+          </a>
+        </div>
+    </form>
+  </div>
+</div>

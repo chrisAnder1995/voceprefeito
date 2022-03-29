@@ -1,0 +1,33 @@
+.card-body{
+    position: relative;
+}
+
+.affix{
+    top: 0px;
+    width: 46%;
+}
+
+.w50{
+    width: 40%;
+}
+
+.right{
+    float: right;
+}
+
+.left{
+    float: left;
+}
+
+.timeline-item {
+    box-shadow: 0 0 1px rgb(0 0 0 / 13%), 0 1px 3px rgb(0 0 0 / 20%);
+    border-radius: .25rem;
+    background-color: #fff;
+    color: #495057;
+    margin-left: 60px;
+    margin-right: 15px;
+    margin-top: 0;
+    padding: 0;
+    position: relative;
+}
+  

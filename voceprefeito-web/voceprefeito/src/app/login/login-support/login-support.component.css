@@ -1,0 +1,75 @@
+button {
+	width: 100%;
+}
+
+.login-support {
+    background-repeat: no-repeat;
+    background-position: center top;
+}
+/*
+@media(max-width: 1024px) {
+    .login-support {
+      background-image: url('../../../assets/img/sup_bg_1024.png');
+    }
+}
+
+@media(min-width: 1025px) and (max-width: 1280px) {
+    .login-support {
+        /*background-image: url('../../../assets/img/sup_bg_1280.png');
+    }
+}
+
+@media(min-width: 1281px) {
+    .login-support {
+        /*background-image: url('../../../assets/img/sup_bg_1440.png');
+        background-size:     cover;                     
+        background-repeat:   no-repeat;
+        background-position: center center; 
+    }
+}*/
+
+.login-wrapper{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	padding: 0 8 0 8 !important;
+}
+
+.login-extBox {
+  position: absolute;
+  	align-items: center;
+  	display: flex;
+  	flex-direction: row;
+  	flex-wrap: wrap;
+  	justify-content: center;
+  	height: 100%;
+  	width: 100%;
+    background-color:#fff;
+}
+
+.login-panel {
+	padding: 30px 30px 30px 30px;
+	width: 750x;
+	box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.5), 0 6px 20px 0
+		rgba(0, 0, 0, 0.39);
+	border-radius: 10px;
+  background-color: #FFFFFF;
+  float: left;
+}
+
+.login-panel>.btn{
+  margin-top: 10px;
+  margin-right: 30px;
+}
+
+.login-logo{
+  height: 100px;
+  margin-bottom: 15px;
+}
+
+.login-panel>rv-form-group{
+  text-align: left;
+}
+
+.login-panel>.form-group{
+  text-align: left;
+}

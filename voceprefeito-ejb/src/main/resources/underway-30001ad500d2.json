@@ -1,0 +1,14 @@
+{
+"web": {
+  "type": "service_account",
+  "project_id": "underway-220420",
+  "private_key_id": "30001ad500d2f37823298074f6ad3caa65201a08",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQC4YpH60eDpGHwP\n5CHFu4VtMO6noQPfFmsGIiXq/2vtu4R0iJRhEwCuzkPpwVPqx6PhuvurUj21/2d+\ncDJ58CUAwg/pd+5BMqT4tNrmJA1pm+QU7I6oLT35aaCqQEHHVmB42QEo86kyc4D+\nbZjfNGtJyhnN2fCUqM9VTB8Q8vl/gT1uXGQCTO524arBtY/MP7zwIrMj+JWqLKIm\npeV7kTaUpOZmk+xl0+85tYy7K9TaXz5R6LX4VShHlc1GQg2RX8coxZGqSulMvpJe\nWIHya+gO16khF8k3u/6DOOnzu+h8IB7b3cQm2jkM20BnNynN8HnJtr6PhuUAQEx3\nGqZgRAupAgMBAAECggEACTrv/Vsf0/NklIQSV7xvLbvnGo+iKrsL0QMJHGY8cCp0\ns0O6D9D8dgO/3RYPPh/P2ac7XYRwr+lw9CCoOjf2Fj9gvgqBrBRds1CUa7Ru0nRa\nGt0LuCoJofByeUtdr52olywf1X27INos4S+52SSd4VQDbi1kkICR3n6AyJ+tMz9+\nXtsIP3Y0US59S8YzqtEi/GcZzNMFdWayWBzBEAkrpG9NH93enmxO7D2WWUiTQZ37\nRSSEPa/8A2GFxc8Q4guVzwYOaC3cyqpSPBjiJuWfsomV4IKQpHZAYeBfrAaIPhPM\nx5tvzcmaP1wrPz5o37Z2W0Q2OH/7FNedXaxYbxPRQQKBgQDz0T5ml7CE0MWml/7h\nU6dAD0Nd1t85PydI+K7Auamzm63ZN/20gyBxyitulP8rhBaFc18MMZcw3rT9tA1u\natj0bWbfE6yS5dGh1EmRvCTBOJ3gQhIfGCdxBQAr4QNkXJk04KGjGUl0hCnzH+09\nRxlo0rm6mIQSD8TMJ0doaNIF4QKBgQDBmRssN0o0cM9VRmjep1n7HCFP4kTmUwOm\ny9V1pyQbtbnt2+Ta6IolRsR/WMOR+KXcYhhVE8yt20TLpModLmkG2Rw4fZasWdi3\nxzS0kxMACvjZnvGZRD5cNN9BuBxk8PVvu9Fexwhn6gXwBNBNtGdIE2fhPn28YfuN\nofSrgi8uyQKBgGlevawS1Fuh6jmEKMfyoi5iKkgMy63u6Ch2KPfrhTa1Ch39P6za\nmpPyvnBs/hYtYJpN8P7RE7kwFmIqhT9598cy3Kl91DAsGDvrBdxwxiWnNTus8i3z\n/1+tvJQ6C4A9MI0Uo2ZcUE2FrKeA3cOEzatqno/QyAsSO4fLVeX+nv2hAoGAR+mv\nhkUjc0dUPMDiw5I2gmh4l0vdfBDqElM0/3cOmpxubER6RjaK2j3nT8aRHu/V7H8j\nuraYGRyR+XNFAIH00W5kZTeBeJQHRHzivxDCxglNVskLxXrsDyQ0qhzRr00yXkbO\nBv63yKHNgtLG7ZZNpyBOPgUQf6GF5555XBwHmsECgYA01T2t1NEzEf9kUA8rh196\n8rbwCFHuHGfcw6SVGXMF7zVF0cym8DPJnaI1t/zIZrFk1rUux2yuCVKNBf2fxnHG\ntD83ta1ji2JoOWOeYMHuOEHhYjk/jW32VhTHvLkgtYaEKU4cAWHZSo3ja+nFYUkF\ncI65/Khmr2jRBnz5oSaB7A==\n-----END PRIVATE KEY-----\n",
+  "client_email": "underwaymail@underway-220420.iam.gserviceaccount.com",
+  "client_id": "105240446954955338715",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/underwaymail%40underway-220420.iam.gserviceaccount.com"
+  }
+}

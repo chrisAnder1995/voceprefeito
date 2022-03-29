@@ -1,0 +1,209 @@
+<di-header-publi ></di-header-publi>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
+</head>
+<div class="wrapper" style="margin-top: 50px;">
+    <div class="content">
+
+            <div class="text-center" >
+                <img src="assets\img\logopmjp.png" class="login-logo1" />
+                <img src="assets\img\voceprefeito.png" class="login-logo2" />
+            </div>
+        
+        <div class="container" >
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="card">
+                <div class="card-body">
+                    <form #form="ngForm">
+                        <div class="nav-tabs-custom">
+                            <!-- <ul class="nav nav-tabs">
+                                <li class="active"><a href="#atendimento" data-toggle="tab">Cadastro do Cidadão</a></li>
+                                <li ><a href="#sugestoes" data-toggle="tab">Sugestões de Políticas Públicas</a></li>
+                            </ul> -->
+                            <div class="tab-content" >
+                                <div class="overlay" *ngIf="showLoading">
+                                    <label class="fa">
+                                        <i class="fa fa-refresh fa-spin"></i>
+                                        <label style="margin-left: 10px; font-family: 'caviar-dreams','Helvetica Ne e',Helvetica,Arial,sans-serif;">
+                                        Aguarde...
+                                        </label>
+                                    </label>
+                                </div>
+                                <div id="atendimento" *ngIf="!proximo  && !avaliar">
+                                    <label style="margin-bottom: 15px;margin-top: 10px;font-size: 18px;">Cadastro do Cidadão</label>
+                                    <div class="row" >
+                                        <div class="col-sm-5">
+                                            <di-form-group label="Nome" withoutStyle="false" errorMessage="Campo obrigatório">
+                                              <input type="text" class="form-control" placeholder="Nome" [(ngModel)]="object.usuario.nome" name="nome" required/>
+                                            </di-form-group>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <di-form-group label="CPF" withoutStyle="false" errorMessage="Campo obrigatório">
+                                                <input type="text" class="form-control" readonly="true" placeholder="CPF" [(ngModel)]="object.usuario.cpf" name="cpf" mask="000.000.000-00" required/>
+                                            </di-form-group>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <di-form-group label="Data de Nascimento" withoutStyle="false" errorMessage="Campo obrigatório">
+                                                <input type="text" class="form-control" placeholder="Data de Nascimento" [(ngModel)]="object.usuario.dataNascimento" name="data" mask="00/00/0000" required/>
+                                            </di-form-group>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-2">
+                                            <di-form-group label="Sexo" withoutStyle="false" errorMessage="Campo obrigatório">
+                                                <select class="form-control"  [(ngModel)]="object.usuario.sexo" name="sexo" [compareWith]="compareFn" required>
+                                                    <option value="">Selecione uma opção</option>
+                                                    <option *ngFor="let sexo of allSexos()"  [label]="sexoString(sexo)" [ngValue]="sexo">{{sexo}} </option>
+                                                </select>
+                                            </di-form-group>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <di-form-group label="Escolaridade" withoutStyle="false" errorMessage="Campo obrigatório">
+                                                <select class="form-control"  [(ngModel)]="object.usuario.escolaridade" name="escolaridade" [compareWith]="compareFn" required>
+                                                    <option value="">Selecione uma opção</option>
+                                                    <option *ngFor="let escolaridade of allEscolaridades()"  [label]="escolaridadeString(escolaridade)" [ngValue]="escolaridade">{{sexo}} </option>
+                                                </select>
+                                            </di-form-group>
+                                        </div>
+                                        <div class="col-sm-3" >
+                                            <di-form-group label="Trabalho Atualmente" withoutStyle="false" errorMessage="Campo obrigatório">
+                                                <select  class="form-control" [(ngModel)]="object.usuario.trabalho" name="trabalho" [compareWith]="compareFn" required >
+                                                    <option value="">Selecione uma opção</option>
+                                                    <option *ngFor="let trabalho of allTrabalhos()" [ngValue]="trabalho" [label]="trabalhoString(trabalho)">{{trabalho}} </option>
+                                                </select>
+                                            </di-form-group>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <di-form-group label="Bairro" withoutStyle="false" errorMessage="Campo obrigatório">
+                                                <select class="form-control" [(ngModel)]="object.usuario.bairro" name="bairro" [compareWith]="compareFn"  (change)="carregaRegiao()" required >
+                                                    <option value="">Selecione uma opção</option>
+                                                    <option *ngFor="let bairro of bairros" [ngValue]="bairro">{{bairro.nome}} </option>
+                                                </select>
+                                            </di-form-group>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <di-form-group label="Região" withoutStyle="false" errorMessage="Campo obrigatório">
+                                                <input type="text" class="form-control" readonly="true" placeholder="Região" [(ngModel)]="regiaoNome" name="regiao" />
+                                            </di-form-group>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div  id="sugestoes" *ngIf="proximo && !avaliar" >
+                                   
+                                   
+                                    <di-message [message]="message" style="margin-top: 10px;margin-bottom: 10px;" [successMessage]="successMessage" [errorMessage]="errorMessage"></di-message>
+                                    <label style="margin-bottom: 15px;margin-top: 10px;font-size: 18px;">Sugestões de Políticas Públicas    </label>
+                                    <div class="row">
+                                        <div class="col-sm-6" >
+                                            <di-form-group label="Política Pública 1" withoutStyle="false" errorMessage="Campo obrigatório">
+                                                <select class="form-control"  [(ngModel)]="object.politicaUm" name="politicaUm" [compareWith]="compareFn" required  (change)="carregaServicoUm();carregaPoliticaDois()">
+                                                    <option value="">Selecione uma opção</option>
+                                                    <option *ngFor="let politica of politicas" [ngValue]="politica">{{politica.nome}} </option>
+                                                </select>
+                                            </di-form-group>
+                                        </div>
+                                        <div class="col-sm-6" >
+                                            <di-form-group label="Sugestão de prioridade" withoutStyle="false" errorMessage="Campo obrigatório">
+                                                <select class="form-control"  [(ngModel)]="object.servicoUm" name="servicoUm" [compareWith]="compareFn" required  >
+                                                    <option value="">Selecione uma opção</option>
+                                                    <option *ngFor="let servico of servicos" [ngValue]="servico">{{servico.nome}} </option>
+                                                </select>
+                                            </di-form-group>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6" >
+                                            <di-form-group label="Política Pública 2" withoutStyle="false" errorMessage="Campo obrigatório">
+                                                <select class="form-control"  [(ngModel)]="object.politicaDois" name="politicaDois" [compareWith]="compareFn" required  (change)="carregaServicoDois();carregaPoliticaTres()">
+                                                    <option value="">Selecione uma opção</option>
+                                                    <option *ngFor="let politica of politicasDois" [ngValue]="politica">{{politica.nome}} </option>
+                                                </select>
+                                            </di-form-group>
+                                        </div>
+                                        <div class="col-sm-6" >
+                                            <di-form-group label="Sugestão de prioridade" withoutStyle="false" errorMessage="Campo obrigatório">
+                                                <select class="form-control"  [(ngModel)]="object.servicoDois" name="servicoDois" [compareWith]="compareFn" required  >
+                                                    <option value="">Selecione uma opção</option>
+                                                    <option *ngFor="let servico of servicosDois" [ngValue]="servico">{{servico.nome}} </option>
+                                                </select>
+                                            </di-form-group>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6" >
+                                            <di-form-group label="Política Pública 3" withoutStyle="false" errorMessage="Campo obrigatório">
+                                                <select class="form-control"  [(ngModel)]="object.politicaTres" name="politicaTres" [compareWith]="compareFn" required  (change)="carregaServicoTres()">
+                                                    <option value="">Selecione uma opção</option>
+                                                    <option *ngFor="let politica of politicasTres" [ngValue]="politica">{{politica.nome}} </option>
+                                                </select>
+                                            </di-form-group>
+                                        </div>
+                                        <div class="col-sm-6" >
+                                            <di-form-group label="Sugestão de prioridade" withoutStyle="false" errorMessage="Campo obrigatório">
+                                                <select class="form-control"  [(ngModel)]="object.servicoTres" name="servicoTres" [compareWith]="compareFn" required  >
+                                                    <option value="">Selecione uma opção</option>
+                                                    <option *ngFor="let servico of servicosTres" [ngValue]="servico">{{servico.nome}} </option>
+                                                </select>
+                                            </di-form-group>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-top: 15px;">
+                                        <div class="col-sm-12" >
+                                              <b>Se você fosse Prefeito, o quê você faria? (Opcional)</b>
+                                              <textarea class="form-control"  [(ngModel)]="object.sugestao"
+                                                name="editTitle" rows="3">
+                                              </textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div> 
+                        <div class="box-footer">
+                            <!-- <button   type="submit" class="btn pull-right" [disabled]="saveDisabled" *ngIf="proximo" data-toggle="modal" data-target="#modal-rating" (click)="saveTeste(form)" style="margin-left: 20px;background-color: #cc353a;color:white">
+                                <i class="fa fa-save"></i> 
+                                Salvar
+                            </button> -->
+                            <button   type="submit" class="btn pull-right" [disabled]="saveDisabled" *ngIf="proximo && !avaliar"  (click)="saveTeste(form)" style="margin-left: 20px;background-color: #cc353a;color:white">
+                                <i class="fa fa-save"></i> 
+                                Salvar
+                            </button>
+                            <button  type="submit" class="btn btn-primary   pull-right" *ngIf="!proximo" (click)="passar(form)" style="margin-left: 20px;color:white">
+                                <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                Próximo
+                            </button>
+                            <button  type="submit" class="btn btn-primary pull-right" *ngIf="proximo && !avaliar" (click)="voltar()" style="margin-left: 20px;color:white">
+                                <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                                Voltar
+                            </button>
+                        </div>
+                    </form>
+               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+<div *ngIf="avaliar" style="padding-right: 15px;">
+    <div  id="avaliar">
+        <h3  class="tituloAvaliacao">Como você avaliaria os serviços prestados pela Prefeitura?</h3>
+        <div class="rating">
+          <input type="radio" name="star" (click)="click1()"  id="star1"><label for="star1"  ></label>
+          <input type="radio" name="star" (click)="click2()" id="star2"><label for="star2"  ></label>
+          <input type="radio" name="star" (click)="click3()" id="star3"><label for="star3"  ></label>
+          <input type="radio" name="star" (click)="click4()"  id="star4"><label for="star4"  ></label>
+          <input type="radio" name="star" (click)="click5()" id="star5"><label for="star5"  ></label>
+       </div>
+       <h4 style="color: orange;font-weight: bold;position: absolute;top: 62%;left: 47%;" *ngIf="textoAvaliacao == 'Excelente!'">{{textoAvaliacao}}</h4>
+       <h4 style="color: orange;font-weight: bold;position: absolute;top: 62%;left: 48%;" *ngIf="textoAvaliacao == 'Ótimo!'">{{textoAvaliacao}}</h4>
+       <h4 style="color: orange;font-weight: bold;position: absolute;top: 62%;left: 49%;" *ngIf="textoAvaliacao == 'Bom!'">{{textoAvaliacao}}</h4>
+       <h4 style="color: orange;font-weight: bold;position: absolute;top: 62%;left: 49%;" *ngIf="textoAvaliacao == 'Ruim!'">{{textoAvaliacao}}</h4>
+       <h4 style="color: orange;font-weight: bold;position: absolute;top: 62%;left: 48%;" *ngIf="textoAvaliacao == 'Péssimo!'">{{textoAvaliacao}}</h4>
+    </div>
+</div>
+
