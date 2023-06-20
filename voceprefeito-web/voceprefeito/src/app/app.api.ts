@@ -2,4 +2,5 @@
 //export const SERVICE = 'http://10.96.0.28:8080/voceprefeito/service'
 //export const SERVICE = 'http://10.96.0.42:8080/voceprefeito/service'
 //export const SERVICE = 'https://homolog.joaopessoa.pb.gov.br/voceprefeito/service'
-export const SERVICE = 'https://joaopessoa.pb.gov.br/voceprefeito/service'
+// export const SERVICE = 'https://joaopessoa.pb.gov.br/voceprefeito/service'
+export const SERVICE =  'https://intranet.joaopessoa.pb.gov.br/voceprefeito/service' 

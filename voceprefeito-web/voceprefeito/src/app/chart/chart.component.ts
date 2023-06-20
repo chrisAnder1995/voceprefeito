@@ -235,6 +235,7 @@ export class ChartComponent implements OnInit {
               this.rpp14++
             }
         }
+        debugger
         this.chartPoliticas()
         this.chartRegioes()
       })
